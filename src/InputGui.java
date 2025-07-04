@@ -14,7 +14,7 @@ public class InputGui extends javax.swing.JFrame {
      * 
      */
 
-       // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ageField;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> dropDown;
@@ -30,28 +30,34 @@ public class InputGui extends javax.swing.JFrame {
     private javax.swing.JButton submitButton;
     private javax.swing.JRadioButton veryActiveRadioButton;
     private javax.swing.JTextField weightField;
-   
-   private int weight = 0;
-   private int height = 0;
-   private int age = 0;
-   private double factor = 0.0;
-   private boolean male = true;
-   
-   public int getWeight(){
-       return weight;
-   }
-   public int getheight(){
-       return height;
-   }
-   public int getAge(){
-       return age;
-   }
-   public double getFactor(){
-       return factor;
-   }
+
+    private int weight = 0;
+    private int height = 0;
+    private int age = 0;
+    private double factor = 0.0;
+    private boolean male = true;
+    private boolean validInput = false;
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public int getheight() {
+        return height;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public double getFactor() {
+        return factor;
+    }
+
     public InputGui() {
         initComponents();
         sedentaryActiveRadioButton.setSelected(true);
+
     }
 
     /**
@@ -85,15 +91,9 @@ public class InputGui extends javax.swing.JFrame {
 
         jLabel2.setText("Body weight (kg)");
 
-       
-
         jLabel3.setText("Height (cm)");
 
-        
-
         jLabel4.setText("Age (years)");
-
-       
 
         submitButton.setText("Submit");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -104,142 +104,171 @@ public class InputGui extends javax.swing.JFrame {
 
         buttonGroup1.add(sedentaryActiveRadioButton);
         sedentaryActiveRadioButton.setText("Sedentary: 1.2 (little or no exercise)");
-       
 
         buttonGroup1.add(lightlyActiveRadioButton);
         lightlyActiveRadioButton.setText(" Lightly active: 1.375 (light exercise a few times a week)");
-        
 
         buttonGroup1.add(moderatelyActiveRadioButton);
         moderatelyActiveRadioButton.setText("Moderately active: 1.55 (3-5 times a week)");
 
         buttonGroup1.add(veryActiveRadioButton);
         veryActiveRadioButton.setText("Very active: 1.725 (6-7 times a week)");
-       
 
         jLabel5.setText("Sex");
 
         dropDown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
-        
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(179, 179, 179)
-                .addComponent(submitButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(63, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(127, 127, 127))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(veryActiveRadioButton)
-                            .addComponent(lightlyActiveRadioButton)
-                            .addComponent(sedentaryActiveRadioButton)
-                            .addComponent(moderatelyActiveRadioButton)
-                            .addGroup(layout.createSequentialGroup()
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(179, 179, 179)
+                                .addComponent(submitButton)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(63, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5))
-                                .addGap(77, 77, 77)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(heightField, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                                    .addComponent(weightField, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                                    .addComponent(ageField, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                                    .addComponent(dropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(43, 43, 43))))
-        );
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                                layout.createSequentialGroup()
+                                                        .addComponent(jLabel1)
+                                                        .addGap(127, 127, 127))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout
+                                                .createSequentialGroup()
+                                                .addGroup(layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(veryActiveRadioButton)
+                                                        .addComponent(lightlyActiveRadioButton)
+                                                        .addComponent(sedentaryActiveRadioButton)
+                                                        .addComponent(moderatelyActiveRadioButton)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addGroup(layout.createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(jLabel2)
+                                                                        .addComponent(jLabel3)
+                                                                        .addComponent(jLabel4)
+                                                                        .addComponent(jLabel5))
+                                                                .addGap(77, 77, 77)
+                                                                .addGroup(layout.createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                        false)
+                                                                        .addComponent(heightField,
+                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                97, Short.MAX_VALUE)
+                                                                        .addComponent(weightField,
+                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                97, Short.MAX_VALUE)
+                                                                        .addComponent(ageField,
+                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                97, Short.MAX_VALUE)
+                                                                        .addComponent(dropDown, 0,
+                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                Short.MAX_VALUE))))
+                                                .addGap(43, 43, 43)))));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel1)
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(weightField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(heightField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(ageField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(dropDown, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addComponent(sedentaryActiveRadioButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lightlyActiveRadioButton)
-                .addGap(16, 16, 16)
-                .addComponent(moderatelyActiveRadioButton)
-                .addGap(12, 12, 12)
-                .addComponent(veryActiveRadioButton)
-                .addGap(32, 32, 32)
-                .addComponent(submitButton)
-                .addGap(14, 14, 14))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(jLabel1)
+                                .addGap(31, 31, 31)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel2)
+                                        .addComponent(weightField, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel3)
+                                        .addComponent(heightField, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel4)
+                                        .addComponent(ageField, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21,
+                                        Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(dropDown, javax.swing.GroupLayout.Alignment.TRAILING,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(29, 29, 29)
+                                .addComponent(sedentaryActiveRadioButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lightlyActiveRadioButton)
+                                .addGap(16, 16, 16)
+                                .addComponent(moderatelyActiveRadioButton)
+                                .addGap(12, 12, 12)
+                                .addComponent(veryActiveRadioButton)
+                                .addGap(32, 32, 32)
+                                .addComponent(submitButton)
+                                .addGap(14, 14, 14)));
 
         pack();
     }
 
-
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {
         String sex = dropDown.getSelectedItem().toString();
-        if (sex.equals("female")){
+        if (sex.equals("female")) {
             male = false;
         }
-        
-         try{
-             weight = Integer.parseInt(weightField.getText());
-             height = Integer.parseInt(heightField.getText());
-             age = Integer.parseInt(ageField.getText());
-             
-             if(sedentaryActiveRadioButton.isSelected() == true){
-                 factor = 1.2;
-             } else if (lightlyActiveRadioButton.isSelected() == true){
-                 factor = 1.375;
-             }else if (moderatelyActiveRadioButton.isSelected() == true){
-                 factor = 1.55;
-             }else{
-                 factor = 1.725;
-             }
-             
-             
-             System.out.println("Weight: " + String.valueOf(weight) + " Height: " + String.valueOf(height) + " Age: " + String.valueOf(age) + " Activity: "  + String.valueOf(factor) + " Male: " + String.valueOf(male));
-             this.dispose();
-         }catch(NumberFormatException e) {
-             JOptionPane.showMessageDialog(this, "Age,height and weight are wholenumbers (Integers) only!",
-                            "Inane error", JOptionPane.ERROR_MESSAGE);
-             
-             weightField.setText("");
-             heightField.setText("");
-             ageField.setText("");
-         }
-       
-       OutputGui output = new OutputGui(height,weight,age,factor,male);
-        
-       java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                output.setVisible(true);
+
+        try {
+
+            weight = Integer.parseInt(weightField.getText());
+            height = Integer.parseInt(heightField.getText());
+            age = Integer.parseInt(ageField.getText());
+
+            validateAge(age);
+            validateHeight(height);
+            validateWeight(weight);
+
+            if (sedentaryActiveRadioButton.isSelected() == true) {
+                factor = 1.2;
+            } else if (lightlyActiveRadioButton.isSelected() == true) {
+                factor = 1.375;
+            } else if (moderatelyActiveRadioButton.isSelected() == true) {
+                factor = 1.55;
+            } else {
+                factor = 1.725;
             }
-        });  
-       
-         
+
+            System.out.println("Weight: " + String.valueOf(weight) + " Height: " + String.valueOf(height) + " Age: "
+                    + String.valueOf(age) + " Activity: " + String.valueOf(factor) + " Male: "
+                    + String.valueOf(male));
+
+            this.dispose();
+
+            OutputGui output = new OutputGui(height, weight, age, factor, male);
+
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    output.setVisible(true);
+                }
+            });
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Age,height and weight are wholenumbers (Integers) only!",
+                    "Inane error", JOptionPane.ERROR_MESSAGE);
+
+            weightField.setText("");
+            heightField.setText("");
+            ageField.setText("");
+            System.err.println("gets to x");
+        } catch (InputGui.InvalidInputException e) {
+            JOptionPane.showMessageDialog(this, "range problems",
+                    "Inane error", JOptionPane.ERROR_MESSAGE);
+            weightField.setText("");
+            heightField.setText("");
+            ageField.setText("");
+
+            System.err.println("gets here");
+        }
+
     }
-
-
- 
 
     public static void main(String args[]) {
 
@@ -259,35 +288,45 @@ public class InputGui extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(InputGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-      
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new InputGui().setVisible(true);
             }
         });
     }
-    
-    /*
-    public class InvalidAgeException extends Exception{
-       public InvalidAgeException(String message){
-       super(message); // call superclass constructor to set the message
-       
-       }
-      public InvalidAgeException(String message, Throwable cause){
-        super(message,cause);
-     }
-    
-      
-    
+
+    public class InvalidInputException extends Exception {
+        public InvalidInputException(String message) {
+            super(message); // call superclass constructor to set the message
+
+        }
+
+        public InvalidInputException(String message, Throwable cause) {
+            super(message, cause);
+        }
+
     }
-    ----
-    public void validateAge(int age){
-        if (age > 100 ){
-         throw new InvalidAgeException("User must be less than 100 years old");
-         
-         //reset Age like you did at the start
+
+    public void validateAge(double age) throws InputGui.InvalidInputException {
+        if (age > 100 || age < 15) {
+            throw new InvalidInputException("User must be younger than 100 but older than 15 ");
+
+        }
     }
+
+    public void validateHeight(double height) throws InputGui.InvalidInputException {
+        if (height > 213 || height < 90) {
+            throw new InvalidInputException("User must be between 90 and 213 cm");
+
+        }
     }
-    
-    */
+
+    public void validateWeight(double weight) throws InputGui.InvalidInputException {
+        if (weight > 100 || weight < 15) {
+            throw new InvalidInputException("User must be below 180 kg and above 30 kg ");
+
+        }
+    }
+
 }
