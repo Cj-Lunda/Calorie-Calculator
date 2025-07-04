@@ -259,8 +259,6 @@ public class InputGui extends javax.swing.JFrame {
             ageField.setText("");
             System.err.println("gets to x");
         } catch (InputGui.InvalidInputException e) {
-            JOptionPane.showMessageDialog(this, "range problems",
-                    "Inane error", JOptionPane.ERROR_MESSAGE);
             weightField.setText("");
             heightField.setText("");
             ageField.setText("");
@@ -309,22 +307,32 @@ public class InputGui extends javax.swing.JFrame {
     }
 
     public void validateAge(double age) throws InputGui.InvalidInputException {
+        String message = "User must be younger than 100 but older than 15 ";
         if (age > 100 || age < 15) {
-            throw new InvalidInputException("User must be younger than 100 but older than 15 ");
+            JOptionPane.showMessageDialog(this, message,
+                    "Range error", JOptionPane.ERROR_MESSAGE);
+            throw new InvalidInputException(message);
 
         }
     }
 
     public void validateHeight(double height) throws InputGui.InvalidInputException {
+        String message = "User must be between 90 and 213 cm";
         if (height > 213 || height < 90) {
-            throw new InvalidInputException("User must be between 90 and 213 cm");
+             JOptionPane.showMessageDialog(this, message,
+                    "Range error", JOptionPane.ERROR_MESSAGE);
+            throw new InvalidInputException(message);
 
         }
     }
 
     public void validateWeight(double weight) throws InputGui.InvalidInputException {
+        String message = "User must be below 180 kg and above 30 kg";
+
         if (weight > 100 || weight < 15) {
-            throw new InvalidInputException("User must be below 180 kg and above 30 kg ");
+            JOptionPane.showMessageDialog(this, message,
+                    "Range error", JOptionPane.ERROR_MESSAGE);
+            throw new InvalidInputException(message);
 
         }
     }
