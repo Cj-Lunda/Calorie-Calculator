@@ -1,18 +1,126 @@
-## Getting Started
+# Calorie Calculator
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+A simple Java GUI application to calculate Basal Metabolic Rate (BMR), calorie surplus, and calorie deficit.
 
-## Folder Structure
+## Prerequisites
 
-The workspace contains two folders by default, where:
+* Java Development Kit (JDK) 8 or higher
+* JUnit 5.13.3 JAR files (included in `lib` folder)
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Project Structure
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+```
+Calorie Calculator/
+├── .git/
+├── bin/
+│   └── .gitkeep
+├── lib/
+│   ├── apiguardian-api-1.1.2.jar
+│   ├── junit-jupiter-api-5.13.3.jar
+│   ├── junit-jupiter-engine-5.13.3.jar
+│   ├── junit-platform-console-standalone-1.13.3.jar
+│   └── opentest4j-1.3.0.jar
+├── src/
+│   ├── AppTest.java
+│   ├── CalorieApp.java
+│   ├── InputGui.java
+│   └── OutputGui.java
+├── README.md
+└── .gitignore
+```
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Running Tests
 
-## Dependency Management
+### 🪟 Windows
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+#### Compile:
+
+```
+javac -d bin -cp "lib\junit-platform-console-standalone-1.13.3.jar" src\*.java
+```
+
+#### Run Tests:
+
+```
+java -jar lib\junit-platform-console-standalone-1.13.3.jar --class-path "bin;lib\junit-platform-console-standalone-1.13.3.jar" --scan-class-path
+```
+
+#### Clean (Command Prompt):
+
+```
+del /Q bin\*.class
+```
+
+#### Clean (PowerShell):
+
+```
+rm bin\*.class
+```
+
+### 🐧 Linux / Mac
+
+#### Compile:
+
+```
+javac -d bin -cp "lib/junit-platform-console-standalone-1.13.3.jar" src/*.java
+```
+
+#### Run Tests:
+
+```
+java -jar lib/junit-platform-console-standalone-1.13.3.jar --class-path "bin:lib/junit-platform-console-standalone-1.13.3.jar" --scan-class-path
+```
+
+#### Clean:
+
+```
+rm bin/*.class
+```
+
+## Running the Application (CalorieApp)
+
+### 🪟 Windows
+
+#### Compile:
+
+```
+javac -d bin src\*.java
+```
+
+#### Run:
+
+```
+java -cp bin CalorieApp
+```
+
+#### Clean (Command Prompt):
+
+```
+del /Q bin\*.class
+```
+
+#### Clean (PowerShell):
+
+```
+rm bin\*.class
+```
+
+### 🐧 Linux / Mac
+
+#### Compile:
+
+```
+javac -d bin src/*.java
+```
+
+#### Run:
+
+```
+java -cp bin CalorieApp
+```
+
+#### Clean:
+
+```
+rm bin/*.class
+```
